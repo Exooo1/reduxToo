@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "asdasd",
+      "surname": "Maskalenchik"
+    },
+    {
+      "id": 2,
+      "name": "adasd",
+      "surname": "Maskalenchik"
+    },
+    {
+      "id": 3,
+      "name": "adasd",
+      "surname": "Maskalenchik"
+    },
+    {
+      "id": 4,
+      "name": "asdasdasd",
+      "surname": "Maskalenchik"
+    },
+    {
+      "id": 5,
+      "name": "asdasd",
+      "surname": "Maskalenchik"
+    },
+    {
+      "id": 6,
+      "name": "xuperx",
+      "surname": "Maskalenchik"
+    }
+  ]
+}
