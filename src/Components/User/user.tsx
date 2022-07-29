@@ -3,8 +3,8 @@ import {useActions, useAppDispatch, useAppSelector} from '../Store/redux-utils'
 import {selectUser} from '../Selectors/SelectorsRedux';
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import {countCake} from '../Store/CakeReducer';
-import {att, incCount} from "../Store/Actions";
-import {actionGetUser, addUsersFetch} from "../Store/UsersReducer";
+import {att, incCountt} from "../Store/Actions";
+import {actionGetUser, addUsersFetch, LoadActions} from "../Store/UsersReducer";
 import {useDispatch} from "react-redux";
 
 export const User = () => {
@@ -18,23 +18,22 @@ export const User = () => {
     const dispatch = useAppDispatch()
     const handlerName = (e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)
     const handlerAddUser = () => {
-        fetchAddUser({id: users.length + 1, name: name, surname: 'Maskalenchik'})
+        disp({type:"ACTION-GET-USER",id:users.length + 1,name,surname:'Maskaelcnhik'})
         setName('')
     }
     const handlerDeleteUser = (id: number) => fetchDeleteUsers(id)
     useEffect(() => {
         // fetchGetUsers()
         dispatch(actionGetUser())
-        
+
     }, [])
 
 
     // @ts-ignore
     return <div>
         {load ? <h1>omg</h1> : null}
-
-        <button style={{color: "red"}} onClick={() => dispatch(att())}>cchangeLoad</button>
-        <button onClick={() => dispatch({type: "ACTION-UK"})}>{count}</button>
+        <button style={{color: "red"}} onClick={() => dispatch(LoadActions())}>cchangeLoad</button>
+        <button onClick={() => disp({type: "ACTION-UK"})}>{count}</button>
         {/*<button onClick={() => dispatch(incCount(count + 1))}>{count}</button>*/}
         <h1 onClick={() => dispatch(countCake())}>THIS IS USER!Cake{cake}</h1>
         <input type="text" value={name} onChange={handlerName}/>

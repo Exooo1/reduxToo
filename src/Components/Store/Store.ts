@@ -1,6 +1,6 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import thunkMiddleware from 'redux-thunk'
-import {addUsersFetch, asyncActions, getUserss, slice, usersReducer} from './UsersReducer';
+import {addUsersFetch, addUsersq, asyncActions, getUserss, loadDs, slice, usersReducer} from './UsersReducer';
 import {cakeReducer} from './CakeReducer';
 import {countReducer} from './countReducer';
 import createSagaMiddleware from 'redux-saga'
@@ -27,8 +27,10 @@ export const store = configureStore({
 
 
 function* rootWatcher() {
-    yield takeEvery("ACTION-UK", addUsersFetch)
+        yield takeEvery("ACTION-UK", addUsersFetch)
     yield takeEvery("ACTION-GET-USERS", getUserss)
+    yield takeEvery("ACTION-GET-LOAD", loadDs)
+    yield takeEvery("ACTION-GET-USER", addUsersq)
 }
 
 
