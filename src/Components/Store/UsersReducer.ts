@@ -3,7 +3,7 @@ import {api} from "../API/Api";
 import {AxiosError, AxiosResponse} from "axios";
 import {AppRootState} from "./redux-utils";
 import {att, incCountt} from "./Actions";
-import {put, call, cancel} from 'redux-saga/effects'
+import {put, call, cancel, cancelled} from 'redux-saga/effects'
 
 export type UserType = {
     id: number,
@@ -19,9 +19,10 @@ type InitialStateType = {
 export function* addUsersFetch() {
     try {
         yield  put(incCount(+1))
+        throw new AxiosError('count dont work')
     } catch (err) {
-        console.log('Errr')
-        yield cancel()
+        yield cancelled()
+        console.log(err)
     }
 }
 
@@ -86,13 +87,13 @@ const fetchAddUser = createAsyncThunk<UserType, UserType, ThunkError>('users/fet
                                                                                                        getState
                                                                                                    }) => {
     try {
-        if (id === 0) throw new AxiosError('dont work')
+        if (id === 1) throw new AxiosError('dont work')
         await api.addUser({id, name, surname})
         const time = getState() as AppRootState
         return {id, name, surname}
     } catch (err) {
         const error = err as AxiosError
-        console.log(error.response)
+        console.log(error)
         return rejectWithValue({errors: error.message})
     }
 
@@ -154,7 +155,7 @@ export const slice = createSlice({
     })
 })
 
-export const {getUserReq, incCount, changeLoad,addUser} = slice.actions
+export const {getUserReq, incCount, changeLoad, addUser} = slice.actions
 export const usersReducer = slice.reducer
 
 

@@ -34,3 +34,10 @@ export const App = () => {
     </Provider>
 }
 
+const a = ()=>{
+    throw new
+    Error
+    ('subj')
+}
+const b = a()
+
