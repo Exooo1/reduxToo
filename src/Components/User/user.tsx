@@ -18,8 +18,8 @@ export const User = () => {
     const dispatch = useAppDispatch()
     const handlerName = (e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)
     const handlerAddUser = () => {
-        fetchAddUser({id:users.length+1,name,surname:"Maskal"})
-        // disp({type:"ACTION-GET-USER",id:users.length + 1,name,surname:'Maskaelcnhik'})
+        // fetchAddUser({id:users.length+1,name,surname:"Maskal"})
+        disp({type:"ACTION-GET-USER",id:users.length + 1,name,surname:'Maskaelcnhik'})
         setName('')
     }
     const handlerDeleteUser = (id: number) => fetchDeleteUsers(id)

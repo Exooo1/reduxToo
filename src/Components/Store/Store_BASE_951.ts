@@ -4,7 +4,7 @@ import {addUsersFetch, addUsersq, asyncActions, getUserss, loadDs, slice, usersR
 import {cakeReducer} from './CakeReducer';
 import {countReducer} from './countReducer';
 import createSagaMiddleware from 'redux-saga'
-import {takeEvery, race} from 'redux-saga/effects'
+import {takeEvery} from 'redux-saga/effects'
 
 export const actionUserSlice = {
     ...asyncActions,
@@ -18,6 +18,7 @@ const rootReducer = combineReducers({
 })
 
 const sagaMiddle = createSagaMiddleware()
+console.log(typeof sagaMiddle)
 
 export const store = configureStore({
     reducer: rootReducer,
@@ -26,22 +27,13 @@ export const store = configureStore({
 
 
 function* rootWatcher() {
-    yield takeEvery("ACTION-UK", addUsersFetch)
-    // yield takeEvery("ACTION-GET-USERS", getUserss)
-    // yield takeEvery("ACTION-GET-LOAD", loadDs)
-    // yield takeEvery("ACTION-GET-USER", addUsersq)
-}
-
-function* incWatcher() {
+        yield takeEvery("ACTION-UK", addUsersFetch)
     yield takeEvery("ACTION-GET-USERS", getUserss)
     yield takeEvery("ACTION-GET-LOAD", loadDs)
     yield takeEvery("ACTION-GET-USER", addUsersq)
 }
 
-function* simpleWatcher() {
-    yield race([rootWatcher(), incWatcher()])
-}
 
 
-sagaMiddle.run(simpleWatcher)
+sagaMiddle.run(rootWatcher)
 
