@@ -42,7 +42,7 @@ export function* getUserss(action: ReturnType<typeof actionGetUser>) {
 export function* addUsersq(action: any) {
     console.log('alesha')
     try {
-        if (action.id === 1) throw new AxiosError('dont work')
+        if (action.id === 0) throw new AxiosError('dont work')
         yield call(api.addUser, {...action})
         yield put(addUser(action))
     } catch (err) {

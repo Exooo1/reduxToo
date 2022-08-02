@@ -1,3 +1,10 @@
 {
-  "users": []
+  "users": [
+    {
+      "type": "ACTION-GET-USER",
+      "id": 1,
+      "name": "asd",
+      "surname": "Maskaelcnhik"
+    }
+  ]
 }
