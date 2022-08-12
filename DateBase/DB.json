@@ -3,7 +3,31 @@
     {
       "type": "ACTION-GET-USER",
       "id": 1,
-      "name": "asd",
+      "name": "g",
+      "surname": "Maskaelcnhik"
+    },
+    {
+      "type": "ACTION-GET-USER",
+      "id": 2,
+      "name": "q",
+      "surname": "Maskaelcnhik"
+    },
+    {
+      "type": "ACTION-GET-USER",
+      "id": 3,
+      "name": "w",
+      "surname": "Maskaelcnhik"
+    },
+    {
+      "type": "ACTION-GET-USER",
+      "id": 4,
+      "name": "w",
+      "surname": "Maskaelcnhik"
+    },
+    {
+      "type": "ACTION-GET-USER",
+      "id": 5,
+      "name": "w",
       "surname": "Maskaelcnhik"
     }
   ]

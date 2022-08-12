@@ -8,6 +8,7 @@ import {actionGetUser, addUsersFetch, LoadActions} from "../Store/UsersReducer";
 import {useDispatch} from "react-redux";
 
 export const User = () => {
+    console.log('user')
     const {fetchAddUser, fetchDeleteUsers, fetchGetUsers} = useActions(actionUserSlice)
     const [name, setName] = useState<string>('')
     const users = useAppSelector(selectUser)
@@ -25,6 +26,7 @@ export const User = () => {
     const handlerDeleteUser = (id: number) => fetchDeleteUsers(id)
     useEffect(() => {
         // fetchGetUsers()
+        console.log('user2')
         dispatch(actionGetUser())
 
     }, [])

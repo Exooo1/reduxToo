@@ -17,6 +17,7 @@ type InitialStateType = {
 }
 
 export function* addUsersFetch() {
+    console.log('FETTTCH')
     try {
         yield  put(incCount(+1))
         throw new AxiosError('count dont work')
@@ -27,6 +28,8 @@ export function* addUsersFetch() {
 }
 
 export const actionGetUser = () => ({type: "ACTION-GET-USERS", load: true})
+console.log('GETTTT')
+
 type ActionType = ReturnType<typeof actionGetUser>
 
 export function* getUserss(action: ReturnType<typeof actionGetUser>) {
@@ -40,7 +43,6 @@ export function* getUserss(action: ReturnType<typeof actionGetUser>) {
 }
 
 export function* addUsersq(action: any) {
-    console.log('alesha')
     try {
         if (action.id === 0) throw new AxiosError('dont work')
         yield call(api.addUser, {...action})
