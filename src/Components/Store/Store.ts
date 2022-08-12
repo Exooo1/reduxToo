@@ -39,7 +39,6 @@ function* incWatcher() {
 }
 
 function* simpleWatcher() {
-    console.log('222')
     yield race([rootWatcher(), incWatcher()])
 }
 

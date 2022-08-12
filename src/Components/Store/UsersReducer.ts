@@ -17,10 +17,9 @@ type InitialStateType = {
 }
 
 export function* addUsersFetch() {
-    console.log('FETTTCH')
+    console.log('ss')
     try {
         yield  put(incCount(+1))
-        throw new AxiosError('count dont work')
     } catch (err) {
         yield cancelled()
         console.log(err)
@@ -28,14 +27,12 @@ export function* addUsersFetch() {
 }
 
 export const actionGetUser = () => ({type: "ACTION-GET-USERS", load: true})
-console.log('GETTTT')
 
 type ActionType = ReturnType<typeof actionGetUser>
 
 export function* getUserss(action: ReturnType<typeof actionGetUser>) {
     try {
         const {data} = yield call(api.getUser)
-        console.log(data)
         yield put(getUserReq({data: data, load: action.load}))
     } catch (err) {
         console.log(err)
@@ -118,6 +115,7 @@ export const slice = createSlice({
             state.load = !state.load
         },
         incCount(state, action: PayloadAction<number>) {
+            console.log('some')
             try {
                 state.count += action.payload
 

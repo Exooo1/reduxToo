@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {AppStyle, ButtonTest} from './Components/Style/AppStyle';
 import {Provider} from 'react-redux';
 import {store} from './Components/Store/Store';
 import {User} from "./Components/User/user";
+import {Count} from "./Components/Count";
 
 const file = (e: any) => {
     console.log('222')
@@ -17,11 +18,11 @@ const file = (e: any) => {
 }
 
 export const App = () => {
-    const [line, setLine] = useState("0")
 
     return <Provider store={store}>
         <AppStyle back={'grey'} width={'50%'} height={'100vh'}>
             <User/>
+            <Count/>
             {/*<ButtonTest>Click</ButtonTest>*/}
             {/*<input type="range" value={line} onChange={(e) => setLine(e.target.value)}/>*/}
             {/*<svg>*/}
